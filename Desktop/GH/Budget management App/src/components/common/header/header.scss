@@ -1,0 +1,160 @@
+@import "../../../styles/variables";
+@import '../../../styles/mixins';
+
+.header-section {
+    @include flex(space-between, center);
+    padding: 30px 0;
+
+    &-logo {
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: $main-color;
+        font-weight: 700;
+    }
+
+    &-navbar {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+
+        &-link {
+            text-decoration: none;
+            color: $first-font-color;
+            padding: 5px 15px;
+            border-radius: 5px;
+            transition: all 0.7s ease;
+            &:hover {
+                background-color: $main-color;
+                color: $white-color;
+            }
+            &.active {
+                border-bottom: 2px solid $main-color;
+                border-radius: 0;
+            }
+        }
+        &-account-dropdown{
+            position: relative;
+            &-menu {
+                position: absolute;
+                right: 0;
+                top: 120%;
+                background-color: $white-color;
+                border: 1px solid #ddd;
+                padding: 30px;
+                width: 340px;
+                border-radius: 6px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                & p {
+                    font-size: 1.2rem;
+                    color: $first-font-color;
+                    & span {
+                        color: $main-color;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+
+    &-hamburger {
+        display: none;
+    }
+    &-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.3);
+            z-index: 1000;
+    }
+
+    &-sidebar {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100vh;
+        background-color: $main-color;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        transition: right 0.3s ease-in-out;
+        z-index: 1001;
+
+        &-link {
+            text-decoration: none;
+            color: $white-color;
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+        &-close-btn {
+            text-align: end;
+            border: none;
+            background-color: $main-color;
+            font-size: 2rem;
+            color: $white-color;
+            border-bottom: 1px solid #CACCD0;
+            padding: 2.6rem 0;
+        }
+        &-social-media {
+            @include flex(space-between, center);
+        }
+        &-account-dropdown{
+            position: relative;
+        
+            &-menu-responsive {
+                position: absolute;
+                right: -5%;
+                top: 120%;
+                background-color: $white-color;
+                border: 1px solid #ddd;
+                padding: 30px;
+                width: 240px;
+                border-radius: 6px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                & p {
+                    font-size: 1.1rem;
+                    color: $first-font-color;
+                    & span {
+                        color: $main-color;
+                        font-weight: 700;
+                    }
+                }
+            }    
+        }
+    }
+}
+
+.open {
+    right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin-inline: 20px !important;
+  }   
+  .header-section {
+    &-navbar {
+        display: none;
+        &-account-dropdown-menu-responsive {
+            right: -5%;
+            padding: 20px;
+            width: 240px;
+        }
+    }
+    &-hamburger {
+        display: block;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.faq-section {
+    background-color: $main-bg-color;
+    padding: 80px 100px;
+
+    &-title {
+        text-align: center;
+        font-size: 3rem;
+        color: $first-font-color;
+        margin-bottom: 20px;
+    }
+    &-text {
+        text-align: center;
+        font-size: 1.2rem;
+        color: $third-font-color;
+        margin-bottom: 20px;
+    }
+
+    &-item {
+        padding: 10px 15px;
+        background-color: $white-color;
+        border-radius: 10px;
+        margin: 30px 0;
+        cursor: pointer;
+        &:hover {
+            background-color: $second-bg-color;
+        }
+
+        &-question {
+            @include flex(space-between, center, 0);
+            & h3 {
+                color: $first-font-color;
+                font-weight: 400;
+            }
+            & span {
+                font-size: 2rem;
+                color: $main-color;
+                font-weight: 300;
+            }
+        }
+
+        &-answer {
+            color: $third-bg-color;
+            font-size: 0.95rem;
+            font-weight: 400;
+            height: 0;
+            overflow: hidden;
+            transition: height 0.6s ease, opacity 0.6s ease;
+            
+            &-open {
+            height: 50px;
+            opacity: 1;
+            margin-top: 30px;
+}
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .faq-section {
+        padding: 80px 25px;
+    }
+}

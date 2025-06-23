@@ -1,0 +1,181 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.payment-section {
+    background-color: $main-bg-color;
+    @include flex(center, center, 50px);
+    padding: 70px 0;
+    &-left {
+        background-color: $white-color;
+        padding: 80px;
+        border-radius: 10px;
+        &-input {
+            @include flex(center, flex-start, 10px, column);
+            margin-bottom: 20px;
+
+            & .input {
+                width: 534px;
+                height: 60px;
+                padding: 0 10px;
+                border: 1px solid #D9D9D9;
+                border-radius: 5px;
+                &.error {
+                  border: 1px solid red;
+                }
+            }
+            & .select {
+                &__control {
+                width: 534px;
+                height: 55px;
+                border: 1px solid #D9D9D9;
+                border-radius: 5px;
+                transition: border 0.3s;
+
+                &:hover {
+                   border-color: $main-color; 
+                }
+
+                &--is-focused {
+                   border-color: $main-color;
+                   box-shadow: none;
+                }
+                }
+
+                &__menu {
+                   border-radius: 5px;
+                   border: 1px solid #D9D9D9;
+                   margin-top: 4px;
+                }
+
+                &__option {
+                   padding: 10px;
+                   cursor: pointer;
+                   height: 55px;
+
+                &:hover {
+                   background-color: #f5f5f5;
+                   color: $first-font-color;
+                }
+
+                &--is-selected {
+                   background-color: $main-color;
+                   color: #fff;
+                }
+                }
+            }
+            & label {
+                color: $first-font-color
+            }
+        }
+        &-label {
+            @include flex(flex-start, center, 185px);
+            margin-bottom: 10px;
+            & p {
+                color: $first-font-color;
+            }
+            &-cvc {
+                @include flex(center, center, 10px);
+            }
+        }
+        &-expiration {
+            @include flex(flex-start, center, 15px);
+            & .input {
+                border: 1px solid #D9D9D9;
+                border-radius: 5px;
+                &.error {
+                     border: 1px solid red;
+                }
+            }
+            & span {
+                font-size: 2rem;
+                font-weight: 300;
+            }
+
+            & input:nth-child(1) {
+                width: 100px;
+                height: 55px;
+                padding-left: 40px;
+            }
+            & input:nth-child(3) {
+                width: 100px;
+                height: 55px;
+                padding-left: 40px;
+            }
+            & input:nth-child(4) {
+                height: 55px;
+                width: 280px;
+                padding-left: 10px;
+            }
+        }
+
+        &-buttons {
+            @include flex(flex-end, center, 15px);
+            border-top: 1px solid #E2E8F0;
+            padding-top: 30px
+        }
+
+        &-error {
+        font-size: 0.90rem;
+        color: red;
+        }
+}
+
+    &-right, &-right-responsive {
+        background-color: $white-color;
+        padding: 62px;
+        border-radius: 10px;
+        & input {
+                width: 260px;
+                height: 50px;
+                padding-left: 10px;
+                border: 1px solid #D9D9D9;
+                border-radius: 5px;
+            }
+        & h3 {
+                color: $first-font-color;
+                font-size: 1.2rem;
+        }
+        &-order {
+             @include flex(space-between, flex-end, 15px);
+             margin: 56px 0;
+            &-promo {
+                margin-bottom: 10px;
+                @include flex(space-between, flex-end, 15px);
+            }
+        }
+        & p {
+            color: $third-font-color;
+            margin-bottom: 20px;
+        }
+    }
+    &-right-responsive {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .payment-section {
+        flex-direction: column;
+        &-left, &-right-responsive {
+            display: block;
+            padding: 25px;
+            width: 100%;
+            &-input .input {
+                width: 370px;
+            }
+            &-input .select__control {
+                width: 370px;
+            }
+            &-expiration input:nth-child(4) {
+                width: 100px;
+            }
+        }
+        &-right-order-promo input {
+            width: 200px;
+        }
+        &-right {
+            display: none;
+        }
+    }
+}

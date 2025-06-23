@@ -1,0 +1,79 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+.banner-section {
+    @include flex(space-between, center, 0);
+    background-color: $second-bg-color;
+    padding: 15px 100px;
+    height: 592px;
+
+    &-content {
+        @include flex(center, start, 20px,  column);
+        width: 440px;
+        &-title {
+            color: $first-font-color;
+            font-size: 4.5rem;
+            font-weight: 600;
+            width: 800px;
+        }
+        &-desc {
+            color: $third-font-color;
+            line-height: 2rem;
+        }
+        &-buttons {
+            @include flex(center, center, 20px);
+        }
+    }
+
+    
+}
+
+.white {
+    background-color: $third-bg-color;
+    color: $white-color;
+    height: 470px;
+}
+.font-color {
+    color: $white-color;
+}
+.btn-white {
+    background-color: $white-color;
+    color: $third-bg-color;
+    transition: all 0.3s;
+    &:hover {
+        background-color: $hover-bg-color;
+        color: $white-color;
+        cursor: pointer;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .banner-section {
+        flex-direction: column;
+        height: 700px;
+        &-image {
+            width: 350px;
+            height: 270px;
+        }
+        &-content {
+            align-items: normal;
+            width: 390px;
+            &-buttons {
+                flex-direction: column;
+                align-items: normal;
+            }
+            &-title {
+                font-size: 49px;
+                width: 400px;
+            }
+        }
+    }
+
+    .white {
+        height: 470px !important;
+        & img {
+            display: none;
+        }
+    }
+}

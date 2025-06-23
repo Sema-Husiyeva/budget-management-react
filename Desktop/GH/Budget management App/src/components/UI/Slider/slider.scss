@@ -1,0 +1,139 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.slider-section{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    & h2 {
+        color: $second-font-color;
+        font-size: 3rem;
+    }
+
+    &-buttons {
+        position: absolute;
+        left: 82%;
+        right: 9%;
+
+        & .swiper-button-prev, .swiper-button-next {
+         border: none;
+         transform: none;
+         padding: 5px 20px;
+         border-radius: 6px;
+         cursor: pointer;
+         font-size: 18px;
+
+         &::after {
+             font-size: 1.5rem;
+         }
+        }
+
+        &-responsive {
+           position: absolute;
+           left: 70%;
+           right: 2%;
+           margin: 3rem 0;
+           display: none;
+
+           & .swiper-button-prev, .swiper-button-next {
+             border: none;
+             transform: none;
+             padding: 5px 20px;
+             border-radius: 6px;
+             cursor: pointer;
+             font-size: 18px;
+           
+           &::after {
+             font-size: 1.5rem;
+           }
+          }
+        }
+    }
+  }
+
+   &-card {
+        background-color: #AFCED4;
+        border-radius: 12px;
+        @include flex(center,flex-start, 30px, column);
+        padding: 40px 60px;
+        height: 310px;
+        &-img-star {
+          width: 100px;
+          height: 20px;
+        }
+        & p {
+          font-size: 1.2rem;
+            color: $first-font-color;
+            font-weight: 400;
+        }
+        & h3 {
+          color: $first-font-color;
+          font-size: 1.3rem
+        }
+        &-user {
+           @include flex(center,center, 30px);
+           & img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+           }
+        }
+
+        &-blue-bg {
+           background-color: #AFCED4;
+        }
+        &-none-bg {
+          background-color: $main-bg-color;
+        }
+        &-white-bg {
+          background-color: $white-color;
+        }
+    }
+}
+
+.filled {
+  background-color: #4A919E;
+  color: white;
+}
+
+
+@media screen and (max-width: 768px) {
+    .slider-section {
+      padding: 50px 0;
+      &-first {
+       .swiper-wrapper {
+        flex-direction: column;
+
+        & .slider-section-card {
+          gap: 20px;
+          width: 350px;
+          align-items: center;
+          padding: 0 25px;
+          & p {
+            text-align: center;
+          }
+       }
+      }
+      }
+
+      &-header-buttons {
+        & .slider1 , .slider2 {
+          display: none;
+        }
+
+        &-responsive {
+          display: block;
+          & .slider1 {
+            display: none;
+          }
+        }
+      } 
+    }
+}

@@ -1,0 +1,119 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.blog-detail-section {
+    &-banner {
+        & img {
+            width: 500px;
+            height: 350px;
+            border-radius: 10px;
+        }
+        & h1 {
+            width: 650px;
+            font-size: 3rem
+        }
+    }
+    &-info {
+        @include flex(center, flex-start, 30px, column);
+        padding: 50px 100px;
+        background-color: $main-bg-color;
+
+        &-title {
+            color: $first-font-color;
+            font-size: 3rem;
+        }
+        &-img {
+            width: 1240px;
+        }
+        &-desc {
+            font-size: 1.6rem;
+            color: $first-font-color;
+        }
+        &-text {
+            color: $third-font-color;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        &-share-buttons {
+            @include flex(flex-start, center, 30px);
+            & h2 {
+                color: $second-font-color;
+            }
+        }
+
+        &-next-articles {
+            padding: 40px 0;
+            &-title {
+                font-size: 2rem;
+                color: $second-font-color;
+                margin-bottom: 40px
+            }
+            &-cards {
+                @include flex(flex-start, flex-start, 50px);
+            }
+            &-card {
+                width: 30%;
+                @include flex(center, flex-start, 10px, column);
+                &-img {
+                    width: 100%;
+                    height: 240px;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+                &-date {
+                    color: $second-font-color;
+                }
+                &-title {
+                    color: $first-font-color;
+                }
+                &-desc {
+                    color: $third-font-color;
+                }
+            }
+            &-responsive-cards {
+                display: none;
+            }
+        }
+    }
+}
+
+  
+@media screen and (max-width: 768px) {
+    .blog-detail-section {
+        &-banner {
+            & img {
+                width: 400px;
+                margin-top: 20px;
+            }
+            & h1 {
+                width: 400px;
+            }
+        }
+        &-info {
+            padding: 50px 25px;
+            &-img {
+                width: 390px;
+            }
+            &-share-buttons {
+                & div {
+                    display: flex;
+                    & img {
+                        width: 100px;
+                    }
+                }
+            }
+            &-next-articles {
+                display: none;
+                &-responsive-cards {
+                      @include flex(flex-start, flex-start, 50px);
+                      width: 100%;
+                      &-card {
+                        width: 240px;
+                        @include flex(center, flex-start, 10px, column);
+                      }
+                } 
+        }
+    }
+} 
+}

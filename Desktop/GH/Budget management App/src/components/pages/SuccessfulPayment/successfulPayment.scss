@@ -1,0 +1,38 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.successful-payment-section {
+    background-color: $main-bg-color;
+
+    &-message {
+        @include flex(center, center);
+        height: 100vh;
+
+        &-card {
+            @include flex(center, center, 40px, column);
+            width: 70%;
+            background-color: $white-color;
+            border-radius: 10px;
+            padding: 70px 0;
+
+            & h1 {
+                color: $second-font-color;
+                font-size: 1.5rem;
+            }
+            & p {
+                color: $third-font-color;
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .successful-payment-section-message-card {
+        width: 90%;
+        & img {
+            width: 90%;
+        }
+    }
+}

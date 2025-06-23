@@ -1,0 +1,32 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.modal {
+    @include flex(center,center, 30px, column);
+    width: 450px;
+    height: 350px;
+    border-radius: 10px;
+    padding: 30px;
+    background-color: $main-bg-color;
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    transition: top 0.8s ease;
+    & p {
+        color: $first-font-color;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+     &.modal-active {
+        top: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .modal-active {
+        top: 100%;
+    }
+}

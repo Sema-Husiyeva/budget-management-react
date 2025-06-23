@@ -1,0 +1,42 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.help-section {
+    &-main {
+        background-color: $main-bg-color;
+        padding: 50px 100px;
+    }
+
+    &-services {
+        @include flex(center,center, 20px);
+
+        &-info {
+            width: 435px;
+            &-title {
+                font-size: 3rem;
+                color: $second-font-color;
+                margin-bottom: 20px;
+            }
+            &-text {
+                color: $third-font-color;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .help-section {
+        &-main {
+            padding: 50px 20px;
+        }
+        &-services {
+            flex-direction: column;
+            gap: 0;
+            padding: 20px;
+            &-info {
+            width: 390px;
+            }
+        }
+    }
+}
